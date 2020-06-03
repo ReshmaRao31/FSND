@@ -1,6 +1,7 @@
 from sqlalchemy import Column, String, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
+import os
 
 database_path = os.environ['DATABASE_URL']
 
@@ -25,9 +26,9 @@ Have title and release year
 class Person(db.Model):  
   __tablename__ = 'People'
 
-  id = Column(Integer, primary_key=True)
-  name = Column(String)
-  catchphrase = Column(String)
+  id = db.Column(db.Integer, primary_key=True)
+  name = db.Column(db.String())
+  catchphrase = db.Column(db.String())
 
   def __init__(self, name, catchphrase=""):
     self.name = name
